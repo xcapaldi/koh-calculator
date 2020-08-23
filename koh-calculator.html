@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta name="author" content="Xavier Capaldi">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
     <script src="js/koh-calculator.js"></script>
+    <title>KOH Etch Calculator</title>
   </head>
   <body>
-    <div style="display: flex;flex-wrap: wrap;">
-      <div style="margin: 10px;width: 350px;justify-content: center;">
+    <div style="display: flex;flex-direction: column;">
+      <div style="margin: 10px;width: 100%;justify-content: center;">
         <h1>KOH etch calculator</h1>
         <!-- material to etch -->
         <div style="display: flex;">
@@ -66,7 +70,7 @@
         <strong><p id="ipa_warning" style="color: orange"></p></strong>
         <p style="color: gray">Etch rates are determined by fitting data provided by the <a href="https://cleanroom.byu.edu/koh" target="_blank">BYU Integrated Microfabrication Lab</a>. The method of data conversion and fitting can be found in the <a href="https://github.com/xcapaldi/koh-calculator" target="_blank">Github repository</a>.
       </div>
-      <div style="margin: 10px;width: 350px;justify-content: center;">
+      <div style="margin: 10px;width: 100%;justify-content: center;">
         <h1>KOH dilution calculator</h1>
         <!-- desired concentration -->
         <label for="conc_des">KOH concentration:</label>
