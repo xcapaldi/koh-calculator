@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="koh-calculator.js"></script>
+  </head>
+  <body>
+    <div style="display: flex;flex-wrap: wrap;">
+      <div style="margin: 10px;width: 350px;justify-content: center;">
+        <h1>KOH etch calculator</h1>
+        <!-- material to etch -->
+        <div style="display: flex;">
+          <div style="margin: 10px">
+            <input type="radio" id="si_100" name="material" value="si_100" onclick="calculateRate();">
+            <label for="si_100">Si 100</label><br>
+          </div>
+          <div style="margin:10px">
+            <input type="radio" id="si_110" name="material" value="si_110" onclick="calculateRate();">
+            <label for="si_110">Si 110</label><br>
+          </div>
+          <div style="margin:10px">
+            <input type="radio" id="si_o2" name="material" value="si_o2" onclick="calculateRate();">
+            <label for="si_o2">SiO<sub>2</sub></label><br>
+          </div>
+        </div>
+        <!-- check for saturated IPA solution -->
+        <input type="checkbox" id="ipa" name="ipa" value="ipa" onclick="calculateRate();displayWarning()">
+        <label for="ipa">Saturated IPA solution?</label><br>
+        <br>
+        <!-- select KOH concentration -->
+        <label for="conc_sel">KOH concentration:</label>
+        <select name="conc_sel" id="conc_sel" onchange="calculateRate();">
+          <option value="20">20%</option>
+          <option value="25">25%</option>
+          <option value="30">30%</option>
+          <option value="35">35%</option>
+          <option value="40">40%</option>
+          <option value="45">45%</option>
+          <option value="50">50%</option>
+          <option value="55">55%</option>
+          <option value="60">60%</option>
+        </select> 
+        <br>
+        <!-- select temperature -->
+        <label for="temp_sel">Etch temperature:</label>
+        <select name="temp_sel" id="temp_sel" onchange="calculateRate();">
+          <option value="20">20 &#176;C</option>
+          <option value="25">25 &#176;C</option>
+          <option value="30">30 &#176;C</option>
+          <option value="35">35 &#176;C</option>
+          <option value="40">40 &#176;C</option>
+          <option value="45">45 &#176;C</option>
+          <option value="50">50 &#176;C</option>
+          <option value="55">55 &#176;C</option>
+          <option value="60">60 &#176;C</option>
+          <option value="65">65 &#176;C</option>
+          <option value="70">70 &#176;C</option>
+          <option value="75">75 &#176;C</option>
+          <option value="80">80 &#176;C</option>
+          <option value="85">85 &#176;C</option>
+          <option value="90">90 &#176;C</option>
+          <option value="95">95 &#176;C</option>
+          <option value="100">100 &#176;C</option>
+        </select> 
+        <strong><p id="rate">---</p></strong>
+        <strong><p id="warning" style="color: red"></p></strong>
+        <p style="color: gray">Etch rates are determined by fitting data provided by the <a href="https://cleanroom.byu.edu/koh" target="_blank">BYU Integrated Microfabrication Lab</a>. The method of data conversion and fitting can be found in the <a href="https://github.com/xcapaldi/koh-calculator" target="_blank">Github repository</a>.
+      </div>
+      <div style="margin: 10px;width: 350px;justify-content: center;">
+        <h1>KOH dilution calculator</h1>
+        <!-- desired concentration -->
+        <label for="conc_des">KOH concentration:</label>
+        <select name="conc_des" id="conc_des" onchange="calculateDilution();">
+          <option value="20">20 wt. %</option>
+          <option value="25">25 wt. %</option>
+          <option value="30">30 wt. %</option>
+          <option value="35">35 wt. %</option>
+          <option value="40">40 wt. %</option>
+          <option value="45">45 wt. %</option>
+        </select> 
+        <br>
+        <label for="vol">Final volume (mL):</label>
+        <input type="number" id="vol" name="vol" min="0" oninput="calculateDilution();">
+        <strong><p id="dilute">---</p></strong>
+        <p style="color: gray">Specific gravities used in dilution calculation are from:<br><br>Green, Don W., and Robert H. Perry. Perry's Chemical Engineers' Handbook (8th Edition), McGraw-Hill Professional Publishing, 2007. ProQuest Ebook Central, https://ebookcentral.proquest.com/lib/mcgill/detail.action?docID=4656922.</p>
+      </div>
+    </div>
+  </body>
+</html>
