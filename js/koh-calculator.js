@@ -74,12 +74,23 @@ function calculateRate() {
     document.getElementById('rate').innerHTML = rate + units;
 }
 
-function displayWarning() {
+function displayIpaWarning() {
     // check if we're dealing with a saturated IPA solution
     if (document.getElementById('ipa').checked) {
-        document.getElementById('warning').innerHTML = "WARNING: This is only an approximation that can be made for 100 Si and even at that, the accuracy is not high. We strongly recommend reading related literature before performing a saturated IPA etch process. Here is a good starting point:<br><br>Rola, K.P., Zubel, I. Impact of alcohol additives concentration on etch rate and surface morphology of (100) and (110) Si substrates etched in KOH solutions. Microsyst Technol 19, 635–643 (2013). https://doi.org/10.1007/s00542-012-1675-x"
+        document.getElementById('ipa_warning').innerHTML = "WARNING: This is only an approximation that can be made for 100 Si and even at that, the accuracy is not high. We strongly recommend reading related literature before performing a saturated IPA etch process. Here is a good starting point:<br><br>Rola, K.P., Zubel, I. Impact of alcohol additives concentration on etch rate and surface morphology of (100) and (110) Si substrates etched in KOH solutions. Microsyst Technol 19, 635–643 (2013). https://doi.org/10.1007/s00542-012-1675-x"
     } else {
-        document.getElementById('warning').innerHTML = "";
+        document.getElementById('ipa_warning').innerHTML = "";
+    }
+}
+
+function displayKohWarning() {
+    // check if we're dealing with a saturated IPA solution
+    if (document.getElementById('conc_sel').value == "20") {
+        document.getElementById('koh_warning').innerHTML = "WARNING: KOH concentrations below 30% have been found to yield rough etches."
+    } else if (document.getElementById('conc_sel').value == "25") {
+        document.getElementById('koh_warning').innerHTML = "WARNING: KOH concentrations below 30% have been found to yield rough etches.";
+    } else {
+        document.getElementById('koh_warning').innerHTML = "";
     }
 }
 

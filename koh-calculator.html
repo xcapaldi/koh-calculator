@@ -23,15 +23,15 @@
           </div>
         </div>
         <!-- check for saturated IPA solution -->
-        <input type="checkbox" id="ipa" name="ipa" value="ipa" onclick="calculateRate();displayWarning()">
+        <input type="checkbox" id="ipa" name="ipa" value="ipa" onclick="calculateRate();displayIpaWarning()">
         <label for="ipa">Saturated IPA solution?</label><br>
         <br>
         <!-- select KOH concentration -->
         <label for="conc_sel">KOH concentration:</label>
-        <select name="conc_sel" id="conc_sel" onchange="calculateRate();">
+        <select name="conc_sel" id="conc_sel" onchange="calculateRate();displayKohWarning();">
           <option value="20">20%</option>
           <option value="25">25%</option>
-          <option value="30">30%</option>
+          <option value="30" selected="selected">30%</option>
           <option value="35">35%</option>
           <option value="40">40%</option>
           <option value="45">45%</option>
@@ -62,7 +62,8 @@
           <option value="100">100 &#176;C</option>
         </select> 
         <strong><p id="rate">---</p></strong>
-        <strong><p id="warning" style="color: red"></p></strong>
+        <strong><p id="koh_warning" style="color: red"></p></strong>
+        <strong><p id="ipa_warning" style="color: orange"></p></strong>
         <p style="color: gray">Etch rates are determined by fitting data provided by the <a href="https://cleanroom.byu.edu/koh" target="_blank">BYU Integrated Microfabrication Lab</a>. The method of data conversion and fitting can be found in the <a href="https://github.com/xcapaldi/koh-calculator" target="_blank">Github repository</a>.
       </div>
       <div style="margin: 10px;width: 350px;justify-content: center;">
